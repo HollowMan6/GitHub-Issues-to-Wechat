@@ -30,19 +30,19 @@ elif event_name == "issue_comment":
     content_type = "comment"
 else:
     content_link = event_content["repository"]["html_url"]
-    title = message = event_content["repository"]["full_name"] + " " + \
+    title_origin = message_origin = event_content["repository"]["full_name"] + " " + \
         event_name.replace("_", " ") + " " + \
         event_content["action"].replace("_", " ")
 
 if title_type and content_type:
     content_link = event_content[content_type]["html_url"]
-    title = event_content["repository"]["full_name"] + " #" + \
+    title_origin = event_content["repository"]["full_name"] + " #" + \
         event_content[title_type]["html_url"].split("/")[-1] + " - " + \
         event_content[title_type]["title"] + " " + \
         event_name.replace("_", " ") + " " + \
         event_content["action"].replace("_", " ")
 
-    message = event_name[0].upper() + event_name.replace("_", " ")[1:].lower() + " from " + \
+    message_origin = event_name[0].upper() + event_name.replace("_", " ")[1:].lower() + " from " + \
         event_content[content_type]["user"]["login"] + \
         ":\n\n" + event_content[content_type]["body"] + "\n\n" + \
         "Link: " + content_link
@@ -55,9 +55,6 @@ corpsecret = os.environ['CORPSECRET']
 agentid = os.environ['AGENTID']
 access_token = ""
 errorNotify = ""
-
-if not title:
-    raise Exception("未设置 `TITLE[name]` Actions Secret!")
 
 
 def exwechat_get_access_token():
@@ -105,6 +102,9 @@ def exwechat_send(title, digest):
     return resp
 
 
+title = title_origin
+message = message_origin
+
 if sckey:
     try:
         host = "https://sctapi.ftqq.com/"
@@ -123,8 +123,8 @@ if sckey:
 else:
     print("未设置SERVERCHANSCKEY，尝试使用PushPlus...")
 
-title = os.environ['TITLE']
-message = os.environ['MSG']
+title = title_origin
+message = message_origin
 
 if pptoken:
     try:
@@ -148,8 +148,8 @@ if pptoken:
 else:
     print("未设置PPTOKEN！")
 
-title = os.environ['TITLE']
-message = os.environ['MSG']
+title = title_origin
+message = message_origin
 
 if corpid:
     info = ""
