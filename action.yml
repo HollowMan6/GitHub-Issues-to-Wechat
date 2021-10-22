@@ -1,6 +1,5 @@
-
-name: 'Send Message to Wechat'
-description: 'Send Message to Wechat.(向微信推送消息)'
+name: 'GitHub Issues to Wechat'
+description: 'Send GitHub Issues, PRs or Discussions Updates to Wechat.(将 GitHub Issues, PRs 或者 Discussions 更新消息发送到微信)'
 
 inputs:
   DELAYS:
