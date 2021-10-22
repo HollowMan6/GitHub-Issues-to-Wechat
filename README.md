@@ -58,6 +58,8 @@
 5. 进入`我的企业` → `微信插件`，拉到下边扫描二维码，关注以后即可收到推送的消息。
 ![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_wechat.png)
 
+![](img/wecom.jpg)
+
 ### Server酱
 
 如果要使用[Server酱](https://sct.ftqq.com/)，请创建一个/修改Name为`SERVERCHANSCKEY`，value为[你的SendKey值](https://sct.ftqq.com/sendkey)的Actions secret。
@@ -113,6 +115,8 @@ If you need to push the related information to multiple Wechat accounts, that is
 ![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_apps.png)
 1. Enter `My Company` → `WeChat Workplace`, pull to the bottom and scan the QR code. After following, you can receive the push message.
 ![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_wechat.png)
+
+![](img/wecom.jpg)
 
 ### ServerChan
 
