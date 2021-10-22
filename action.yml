@@ -1,0 +1,34 @@
+
+name: 'Send Message to Wechat'
+description: 'Send Message to Wechat.(向微信推送消息)'
+
+inputs:
+  DELAYS:
+    description: 'Delay time for running(设置发消息时间延迟)'
+    required: false
+  SERVERCHANSCKEY:
+    description: 'Server酱 SCKEY'
+    required: false
+  PPTOKEN:
+    description: 'PushPlus Token'
+    required: false
+  PPTOPIC:
+    description: 'PushPlus Topic(群组编码)'
+    required: false
+  CORPID:
+    description: 'Wecom Corporation ID'
+    required: false
+  CORPSECRET:
+    description: 'Wecom Corporation App Secret'
+    required: false
+  AGENTID:
+    description: 'Wecom Corporation App Agent ID'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  color: purple
+  icon: send

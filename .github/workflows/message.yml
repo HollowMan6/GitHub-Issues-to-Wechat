@@ -1,0 +1,27 @@
+name: Notify
+on:
+  issues:
+    types: [opened, edited, deleted, closed, reopened]
+  issue_comment:
+    types: [created, edited, deleted]
+  pull_request:
+    types: [opened, edited, deleted, closed, reopened, synchronize, converted_to_draft, ready_for_review, review_requested, review_request_removed]
+  discussion:
+    types: [created, edited, deleted, answered, unanswered]
+  discussion_comment:
+    types: [created, edited, deleted]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Send GitHub Update Message to Wechat'
+      uses: HollowMan6/GitHub-Issues-to-Wechat@main
+      with:
+        DELAYS: ${{ secrets.DELAYS }}
+        SERVERCHANSCKEY: ${{ secrets.SERVERCHANSCKEY }}
+        PPTOKEN: ${{ secrets.PPTOKEN }}
+        PPTOPIC: ${{ secrets.PPTOPIC }}
+        CORPID: ${{ secrets.CORPID }}
+        CORPSECRET: ${{ secrets.CORPSECRET }}
+        AGENTID: ${{ secrets.AGENTID }}
