@@ -1,4 +1,4 @@
-# 向微信推送 GitHub Issue 消息
+# Send timed message to Wechat
 
 [![last-commit](https://img.shields.io/github/last-commit/HollowMan6/GitHub-Issues-to-Wechat)](https://github.com/HollowMan6/GitHub-Issues-to-Wechat/graphs/commit-activity)
 [![release-date](https://img.shields.io/github/release-date/HollowMan6/GitHub-Issues-to-Wechat)](https://github.com/HollowMan6/GitHub-Issues-to-Wechat/releases)
@@ -16,7 +16,64 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/HollowMan6/GitHub-Issues-to-Wechat.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HollowMan6/GitHub-Issues-to-Wechat/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/HollowMan6/GitHub-Issues-to-Wechat.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HollowMan6/GitHub-Issues-to-Wechat/context:python)
 
-(English version is down below)
+(中文版本在下方)
+
+Send GitHub Issues, PRs or Discussions Updates to Wechat
+
+Source Github Repository Link: https://github.com/HollowMan6/GitHub-Issues-to-Wechat
+
+### Please **★Star** if you think it's great!
+
+[Python library dependency](https://github.com/HollowMan6/GitHub-Issues-to-Wechat/network/dependencies)
+
+[Source Code](GitHub-Issues-to-Wechat.py)
+
+### Example [Workflow](.github/workflows/message.yml)
+
+## Usage
+
+you can fork this repository first, and then create Actions Secrets and set related settings in your forked repository (click in the order of 1, 2 and 3 as shown in the figure below).
+
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/secrets.png)
+
+You can choose one or more of the following three push platforms to receive pushed messages:
+
+### PushPlus(Recommended)
+
+First [log into pushplus](https://www.pushplus.plus/push1.html), and then find your token in pushplus website, create a actions secret with the name of `PPTOKEN` and the value of your token value, and then one-to-one push the related information results.
+
+If you need to push the related information to multiple Wechat accounts, that is, one-to-many push, you need to create a group, write down the group code, and then create an actions secret with the name of `PPTOPIC` and the value of your group code.
+
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/c1.png)
+
+### Wecom push by Wechat 
+
+1. First register [Wecom](https://work.weixin.qq.com/wework_admin/loginpage_wx).
+2. After successful registration, obtain the Company ID and create an actions secret with the name of `CORPID` and the value of your Company ID.
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecomid.png)
+3. Select `App Management` → `Apps` → `Create an app`.
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_create_apps.png)
+1. After the creation, obtain the secret and AgentId, and create actions secret with the name of `CORPSECRET` and `AGENTID` and the value of these values respectively. 
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_apps.png)
+1. Enter `My Company` → `WeChat Workplace`, pull to the bottom and scan the QR code. After following, you can receive the push message.
+![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_wechat.png)
+
+![](img/wecom.jpg)
+
+### ServerChan
+
+If you want to use [ServerChan](https://sct.ftqq.com/), please create/modify the Actions secret with the Name `SERVERCHANSCKEY` and the value [your sendkey value](https://sct.ftqq.com/sendkey).
+
+### Input
+
+* SERVERCHANSCKEY: ServerChan SCKEY
+* PPTOKEN: PushPlus Token
+* PPTOPIC: PushPlus Topic
+* CORPID: Wecom Corporation ID
+* CORPSECRET: Wecom Corporation App Secret
+* AGENTID: Wecom Corporation App Agent ID
+
+# 向微信推送 GitHub Issue 消息
 
 将 GitHub Issues, PRs 或者 Discussions 更新消息发送到微信。
 
@@ -74,59 +131,3 @@
 * CORPSECRET: Wecom Corporation App Secret
 * AGENTID: Wecom Corporation App Agent ID
 
-# Send timed message to Wechat
-
-Send GitHub Issues, PRs or Discussions Updates to Wechat
-
-Source Github Repository Link: https://github.com/HollowMan6/GitHub-Issues-to-Wechat
-
-### Please **★Star** if you think it's great!
-
-[Python library dependency](https://github.com/HollowMan6/GitHub-Issues-to-Wechat/network/dependencies)
-
-[Source Code](GitHub-Issues-to-Wechat.py)
-
-### Example [Workflow](.github/workflows/message.yml)
-
-## Usage
-
-you can fork this repository first, and then create Actions Secrets and set related settings in your forked repository (click in the order of 1, 2 and 3 as shown in the figure below).
-
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/secrets.png)
-
-You can choose one or more of the following three push platforms to receive pushed messages:
-
-### PushPlus(Recommended)
-
-First [log into pushplus](https://www.pushplus.plus/push1.html), and then find your token in pushplus website, create a actions secret with the name of `PPTOKEN` and the value of your token value, and then one-to-one push the related information results.
-
-If you need to push the related information to multiple Wechat accounts, that is, one-to-many push, you need to create a group, write down the group code, and then create an actions secret with the name of `PPTOPIC` and the value of your group code.
-
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/c1.png)
-
-### Wecom push by Wechat 
-
-1. First register [Wecom](https://work.weixin.qq.com/wework_admin/loginpage_wx).
-2. After successful registration, obtain the Company ID and create an actions secret with the name of `CORPID` and the value of your Company ID.
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecomid.png)
-3. Select `App Management` → `Apps` → `Create an app`.
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_create_apps.png)
-1. After the creation, obtain the secret and AgentId, and create actions secret with the name of `CORPSECRET` and `AGENTID` and the value of these values respectively. 
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_apps.png)
-1. Enter `My Company` → `WeChat Workplace`, pull to the bottom and scan the QR code. After following, you can receive the push message.
-![](https://github.com/HollowMan6/Wechat-Timed-Message/raw/main/img/wecom_wechat.png)
-
-![](img/wecom.jpg)
-
-### ServerChan
-
-If you want to use [ServerChan](https://sct.ftqq.com/), please create/modify the Actions secret with the Name `SERVERCHANSCKEY` and the value [your sendkey value](https://sct.ftqq.com/sendkey).
-
-### Input
-
-* SERVERCHANSCKEY: ServerChan SCKEY
-* PPTOKEN: PushPlus Token
-* PPTOPIC: PushPlus Topic
-* CORPID: Wecom Corporation ID
-* CORPSECRET: Wecom Corporation App Secret
-* AGENTID: Wecom Corporation App Agent ID
